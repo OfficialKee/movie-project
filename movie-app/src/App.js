@@ -1,5 +1,6 @@
 import Table from "./MovieForm";
 import Movies from "./Movies";
+import Form from "./submitForm";
 import React from "react";
 import  {Component} from "react"
 
@@ -27,9 +28,9 @@ class App extends Component {
   // NOTE ON SYNTAX: passing a character to addCharacter 
   // using (...) spread operator to unpack characters array and adding
   // a new character
-  // addCharacter = character => {
-  //   this.setState({characters: [...this.state.characters, character ]})
-  // } 
+  addMovie = movie => {
+     this.setState({Movies: [...this.state.Movies, movie ]})
+   } 
   
   //delete all the characters 
   // removeAllCharacters = () => {
@@ -47,6 +48,8 @@ class App extends Component {
        movieData = {this.state.Movies}
        deleteMovie ={this.removeMovie}
       />
+      <Form
+      addMovie={this.addMovie}/>
   </>
     )
   }
