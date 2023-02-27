@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
+const date = new Date()
 class Form extends Component{
     //set initial state of form  in constructor and save it to state
     constructor(props){
@@ -13,7 +14,7 @@ class Form extends Component{
             imdbRating:'',
             director:'',
             year:'',
-            dateAdded: new Date()
+            dateAdded: ``
 
             
         }
@@ -28,7 +29,7 @@ class Form extends Component{
 
         //update state
         this.setState({
-            [name]: value
+            [name]: value,
         })
 
 
@@ -93,6 +94,15 @@ class Form extends Component{
                     value={year}
                     onChange={this.handleChange}
                     /><br/>
+                    <label htmlFor="date added">Date Added :</label><br/>
+                <input 
+                    type="text" 
+                    id="dateAdded" 
+                    name="dateAdded"
+                    value={dateAdded}
+                    onChange={this.handleChange}
+                    />
+                   
              <button type='submit'>Submit</button>
 
             </form>
