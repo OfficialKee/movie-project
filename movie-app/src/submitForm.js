@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
-const date = new Date()
+const date =  ()=> new Date()
 class Form extends Component{
     //set initial state of form  in constructor and save it to state
     constructor(props){
@@ -14,7 +14,7 @@ class Form extends Component{
             imdbRating:'',
             director:'',
             year:'',
-            dateAdded: ``
+            dateAdded:new Date().toString()
 
             
         }
@@ -37,13 +37,15 @@ class Form extends Component{
 
     onSubmit = event => {
         event.preventDefault();
+        const newDate = new Date().toString();
+        this.setState({dateAdded:newDate});
 //sets current state to what was submitted
         this.props.addMovie(this.state)
     }
 
     render(){
         //hook in data from state
-        const{title,actors,plot,imdbRating,director,year,dateAdded} = this.state
+        const{title,actors,plot,imdbRating,director,year} = this.state
         return(
             <form onSubmit={this.onSubmit}>
                 <label htmlFor="title">Title :</label><br/>
@@ -94,14 +96,14 @@ class Form extends Component{
                     value={year}
                     onChange={this.handleChange}
                     /><br/>
-                    <label htmlFor="date added">Date Added :</label><br/>
-                <input 
+                    {/* <label htmlFor="date added">Date Added :</label><br/> */}
+                {/* <input 
                     type="text" 
                     id="dateAdded" 
                     name="dateAdded"
                     value={dateAdded}
                     onChange={this.handleChange}
-                    />
+                    /> */}
                    
              <button type='submit'>Submit</button>
 
