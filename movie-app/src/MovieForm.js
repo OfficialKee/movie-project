@@ -10,6 +10,7 @@ function MovieHeader() {
                     <th>imdbRating</th>
                     <th>director</th>
                     <th>year</th>
+                    <th>date added</th>
                 </tr>
             </thead>
         
@@ -29,10 +30,11 @@ const MovieForm = (props) => {
           <td>{row.title}</td>
           <td>{row.job}</td>
           <td>{row.actors}</td>
-          {/* <td>{row.plot}</td> */} 
+          <td>{row.plot}</td> 
           <td>{row.imdbRating}</td>
           <td>{row.director}</td>
           <td>{row.year}</td>
+          <td>{row.dateAdded}</td>
           <td><button onClick={()=>props.deleteMovie(index)}> Delete</button></td>
         </tr>
       )

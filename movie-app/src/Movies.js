@@ -1,3 +1,5 @@
+ const theDate = new Date
+
 const Movies = [
     {
       title: "The Godfather",
@@ -7,6 +9,8 @@ const Movies = [
       imdbRating: 9.2,
       director: "Francis Ford Coppola",
       year: 1972,
+      
+ dateAdded: `${new Date()}`     
     },
     {
       title: "The Shawshank Redemption",
@@ -16,6 +20,7 @@ const Movies = [
       imdbRating: 9.3,
       director: "Frank Darabont",
       year: 1994,
+      dateAdded: `${new Date()}`
     },
     {
       title: "The Dark Knight",
@@ -25,6 +30,7 @@ const Movies = [
       imdbRating: 9.0,
       director: "Christopher Nolan",
       year: 2008,
+      dateAdded: `${new Date()}`
     },
     {
       title: "Pulp Fiction",
@@ -34,6 +40,7 @@ const Movies = [
       imdbRating: 8.9,
       director: "Quentin Tarantino",
       year: 1994,
+      dateAdded: `${new Date()}`
     },
     {
       title: "The Lord of the Rings: The Return of the King",
@@ -43,6 +50,7 @@ const Movies = [
       imdbRating: 8.9,
       director: "Peter Jackson",
       year: 2003,
+      dateAdded: `${new Date()}`
     },
     {
       title: "Forrest Gump",
@@ -52,6 +60,7 @@ const Movies = [
       imdbRating: 8.8,
       director: "Robert Zemeckis",
       year: 1994,
+      dateAdded: `${new Date()}`
     },
     {
       title: "Inception",
@@ -61,6 +70,7 @@ const Movies = [
       imdbRating: 8.7,
       director: "Christopher Nolan",
       year: 2010,
+      dateAdded: `${new Date()}`
     },
     {
       title: "The Matrix",
@@ -70,6 +80,7 @@ const Movies = [
       imdbRating: 8.7,
       director: "Lana Wachowski, Lilly Wachowski",
       year: 1999,
+      dateAdded: `${new Date()}`
     },
     {
       title: "Schindler's List",
@@ -79,6 +90,7 @@ const Movies = [
       imdbRating: 8.9,
       director: "Steven Spielberg",
       year: 1993,
+      dateAdded: `${new Date()}`
     },
     {
       title: "Goodfellas",
@@ -88,6 +100,7 @@ const Movies = [
       imdbRating: 8.7,
       director: "Martin Scorsese",
       year: 1990,
+      dateAdded: `${new Date()}`
     },
   ];
 
