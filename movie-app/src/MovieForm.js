@@ -1,16 +1,17 @@
 import React, {Component} from "react";
 
+
 function MovieHeader() {
     return (
-            <thead>
+            <thead className="col row-cols-7 text-center bg-primary">
                 <tr>
-                    <th>title</th>
-                    <th>actors</th>
-                    <th>plot</th>
-                    <th>imdbRating</th>
-                    <th>director</th>
-                    <th>year</th>
-                    <th>date added</th>
+                    <th className="col">title</th>
+                    <th className="col">actors</th>
+                    <th className="col">plot</th>
+                    <th className="col">imdbRating</th>
+                    <th className="col">director</th>
+                    <th className="col">year</th>
+                    <th className="col">date added</th>
                 </tr>
             </thead>
         
@@ -26,15 +27,14 @@ const MovieForm = (props) => {
     //registered an on click listener to remove the character
     const rows = props.list.map((row, index) => {
       return (
-        <tr key={index}>
-          <td>{row.title}</td>
-          <td>{row.job}</td>
-          <td>{row.actors}</td>
-          <td>{row.plot}</td> 
-          <td>{row.imdbRating}</td>
-          <td>{row.director}</td>
-          <td>{row.year}</td>
-          <td>{row.dateAdded}</td>
+        <tr key={index} className='col row-cols-7 text-center'>
+          <td className="col bg-danger">{row.title}</td>
+          <td className="col">{row.actors}</td>
+          <td className="col bg-info">{row.plot}</td> 
+          <td className="col">{row.imdbRating}</td>
+          <td className="col bg-warning">{row.director}</td>
+          <td className="col">{row.year}</td>
+          <td className="col">{row.dateAdded}</td>
           <td><button onClick={()=>props.deleteMovie(index)}> Delete</button></td>
         </tr>
       )
@@ -50,7 +50,7 @@ const MovieForm = (props) => {
             deleteMovie
         } = this.props;
         return(
-            <table>
+            <table className="">
                 <MovieHeader/>
                 <MovieForm
                 list ={movieData}

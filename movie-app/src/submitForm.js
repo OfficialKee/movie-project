@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
-const date =  ()=> new Date()
+
 class Form extends Component{
     //set initial state of form  in constructor and save it to state
     constructor(props){
@@ -47,7 +47,7 @@ class Form extends Component{
         //hook in data from state
         const{title,actors,plot,imdbRating,director,year} = this.state
         return(
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className='container text-center'>
                 <label htmlFor="title">Title :</label><br/>
                 <input 
                     type="text" 

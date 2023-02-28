@@ -3,6 +3,7 @@ import Movies from "./Movies";
 import Form from "./submitForm";
 import React from "react";
 import  {Component} from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
     return (
      
    <>
-     <Table
+     <Table 
        movieData = {this.state.Movies}
        deleteMovie ={this.removeMovie}
       />
