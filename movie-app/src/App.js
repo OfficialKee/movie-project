@@ -1,68 +1,67 @@
-import Table from "./MovieForm";
-import Movies from "./Movies";
-import Form from "./submitForm";
-import React from "react";
-import  {Component} from "react"
-import 'bootstrap/dist/css/bootstrap.min.css';
+//Import React Components
+import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+// Import Route info
+import NavLayout from "./Layouts/NavLayout";
+import HomePage from "./Pages/HomePage";
+import MoviePage from "./Pages/MoviePage";
+import MovieLayout from "./Layouts/MovieLayout";
+import MoviesListing from "./Pages/MoviesListing";
+import MovieAdd from "./Pages/MovieAdd";
+//Import Data Set
+import movies from "./MovieData/Movies";
 
+const App = () => {
+  //Set state of data set
+  const [movieList, setMovieList] = useState(movies);
 
-class App extends Component {
-  // set initial state of component 
-  state = {Movies : Movies}
-
-  // create simple method here to remove Movie
-  removeMovie = (index) => {
-  //now that we've defined this.state, we can use 
-      const { Movies } = this.state 
-  
-      // we can use setState to update the state 
-      this.setState({
-          // remove movie at passed in index by returning 
-          // a new list excluding that movie
-          Movies : Movies.filter((_, i) => {
-              return i !== index
-          }),
-      })
-  } 
-  //we add the handle submit here , because 
-  //the characters are in here 
-  // NOTE ON SYNTAX: passing a character to addCharacter 
-  // using (...) spread operator to unpack characters array and adding
-  // a new character
-  addMovie = movie => {
-     this.setState({Movies: [...this.state.Movies, movie ]})
-   } 
-  
-  //delete all the characters 
-  // removeAllCharacters = () => {
-  //   this.setState({characters:[]})
-  // }
-
-  /* you always have a render function
-   in a component. */ 
-
-  render() {
-    return (
-     
-   <>
-     <Table 
-       movieData = {this.state.Movies}
-       deleteMovie ={this.removeMovie}
-      />
-      <Form
-      addMovie={this.addMovie}/>
-  </>
-    )
+  //create function to handle adding a movie title
+  const handleAddMovie = (title) => {
+    const newMovie = {
+      Title: title
+    }
+    setMovieList ([...movieList, newMovie])
   }
+ 
+  //Stucture Router to define pages and children
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <NavLayout />,
+      children: [
+        {
+          element: <HomePage />,
+          index: true,
+        },
+        {
+          path: "/movies",
+          element: <MovieLayout data={movieList} />,
+          children: [
+            {
+              element: <MoviesListing data={movieList} />,
+              index: true,
+            },
+            {
+              element: <MovieAdd handleAddMovie={handleAddMovie} />,
+              path: "/Pages/MovieAdd",
+            },
+            {
+              element: <MoviePage data={movieList} />,
+              path: ":index",
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+
+  //Return the page routing
+return (
+  <div className="App-header">
+    <RouterProvider router = {router} />
+  </div>
+);
 }
 
-
-
 export default App;
-
-
-
-// function deleteNote(event, noteId) {
-//   event.stopPropagation()
-//   setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
-// }
