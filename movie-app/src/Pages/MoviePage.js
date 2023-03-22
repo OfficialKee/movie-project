@@ -1,6 +1,6 @@
 //Import React Components
 import { useParams } from "react-router-dom";
-
+import Movies from "../MovieData/Movies";
 
 //TABLE HEADER SIMPLE COMPONENT
 const TableHeader = () => {
